@@ -1,0 +1,7 @@
+platformName: android
+deviceName: mumu
+appPackage: com.changqingmall.smartshop
+appActivity: com.changqingmall.smartshop.activity.SplashActivity
+autoGrantPermissions: True
+noReset: True
+automationName: uiautomator2
