@@ -11,8 +11,8 @@ class TestLogin:
     def teardown(self):
         print(22222)
 
-    def test_login_succeed(self, driver):
-        page = LoginPage(driver)
+    def test_login_succeed(self, app):
+        page = LoginPage(app)
         page.phone_input = "13912345678"
         page.ver_code_but.click()
         page.ver_code_input = "0000"

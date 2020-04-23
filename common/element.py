@@ -70,7 +70,6 @@ class FindElement(PageElement):
             if self.get_element(context) is None:
                 file_name = '-'.join(self.locator) + "对象未找到截图.png"
                 capture_screenshots(context, file_name)
-                allure.attach(context.get_screenshot_as_png(), name=file_name, attachment_type=AttachmentType.PNG)
                 logger.info("{desc}, 对象未找到, {elm} ".format(desc=self.describe, elm=self.locator))
             return self.get_element(context)
 
@@ -84,7 +83,6 @@ class FindElements(PageElements):
             except Exception:
                 file_name = '-'.join(self.locator) + "对象未找到截图.png"
                 capture_screenshots(context, file_name)
-                allure.attach(context.get_screenshot_as_png(), name=file_name, attachment_type=AttachmentType.PNG)
                 # 日志
                 logger.info("{desc}, 对象未找到, {elm} ".format(desc=self.describe, elm=self.locator))
                 return []
