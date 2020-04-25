@@ -54,9 +54,10 @@ def run_pro(device_info):
 def run(m, p):
     if m is None or m == "run":
         for i in range(0, p):
-            port = 4723 + 2 * i
-            device_infos[i]["server_port"] = port
-            device_infos[i]["bp_port"] = port + 1
+            server_port = 4723 + 2 * i
+            system_port = 8200 + i
+            device_infos[i]["server_port"] = server_port
+            device_infos[i]["system_port"] = system_port
 
         with Pool(p) as pool:
             pool.map(run_pro, device_infos)

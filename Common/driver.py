@@ -25,7 +25,7 @@ class BaseDriver:
             release_port(port)
             time.sleep(2)
         cmd = "appium -p {0} -bp {1}".format(self.device_info["server_port"],
-                                             self.device_info["bp_port"])
+                                             self.device_info["server_port"] + 1)
         logger.info(f"start appium server: {cmd}")
         out_path = os.path.join(LOG_DIR, 'appiumlog', str(self.device_info["server_port"]) + ".log")
         subprocess.Popen(cmd, shell=True, stdout=open(out_path, 'a'), stderr=subprocess.STDOUT)
@@ -34,7 +34,7 @@ class BaseDriver:
         desired_caps = read_yaml(CAPS_DIR)
         # desired_caps["platformVersion"] = self.device_info["platform_version"]
         desired_caps["deviceName"] = self.device_info["device_name"]
-        desired_caps["systemPort"] = self.device_info["bp_port"]
+        desired_caps["systemPort"] = self.device_info["system_port"]
         logger.info(f'http://127.0.0.1:{self.device_info["server_port"]}/wd/hub')
         driver = webdriver.Remote(f'http://{self.host}:{self.device_info["server_port"]}/wd/hub', desired_caps)
         driver.implicitly_wait(5)
