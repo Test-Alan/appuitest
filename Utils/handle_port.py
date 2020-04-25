@@ -1,7 +1,7 @@
 import os
 import socket
 from sys import platform
-from utils.logger import logger
+from Utils.logger import logger
 
 
 def check_port(host, port):

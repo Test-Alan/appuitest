@@ -1,15 +1,10 @@
-import os
 import time
 
 import allure
 import pytest
-from common.driver import BaseDriver
+from Common.driver import BaseDriver
 
-from page.objects.comm_page import CommonPage
 from allure_commons.types import AttachmentType
-
-from settings import REPORT_DIR
-from utils.handle_report import new_report_time
 
 driver = None
 
@@ -38,8 +33,6 @@ def pytest_runtest_makereport(item):
     :param item:
     """
     global driver
-    pytest_html = item.config.pluginmanager.getplugin('html')
-    print(11111111111,pytest_html)
     outcome = yield
     report = outcome.get_result()
     extra = getattr(report, 'extra', [])
@@ -60,7 +53,7 @@ def pytest_runtest_makereport(item):
 @pytest.fixture
 def common_driver(cmdopt):
     global driver
-    print(11111, cmdopt)
+    print(cmdopt)
     base_driver = BaseDriver(eval(cmdopt))
     # base_driver.start_appium()
     time.sleep(3)

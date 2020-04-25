@@ -1,7 +1,6 @@
-from page.objects.login_page import LoginPage
 import pytest
 import time
-from page.objects.message_page import MessagePage
+from PageObjects.message_page import MessagePage
 
 
 class TestLogin:

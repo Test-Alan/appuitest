@@ -4,7 +4,7 @@ from poium import Page, PageElement, PageElements
 from allure_commons.types import AttachmentType
 from selenium.webdriver.support.wait import WebDriverWait
 
-from utils.logger import logger
+from Utils.logger import logger
 
 
 class BasePage(Page):

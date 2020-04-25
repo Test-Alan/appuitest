@@ -9,7 +9,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 def init_logger():
     now_time = time.strftime("%Y_%m_%d_%H_%M_%S")   # 当前时间
     log_file_name = now_time + ".log"            # 使用当前时间当做log日志的文件名
-    log_file = os.path.join(BASE_DIR, "logs/", log_file_name)
+    log_file = os.path.join(BASE_DIR, "Logs/", log_file_name)
     dir_path = os.path.dirname(log_file)
     try:
         if not os.path.exists(dir_path):
@@ -21,7 +21,7 @@ def init_logger():
     fmt = '%(asctime)s %(filename)s[line:%(lineno)d] %(levelname)s %(message)s'
     formatter = logging.Formatter(fmt)
     handler.setFormatter(formatter)
-    logger_instance = logging.getLogger('logs')
+    logger_instance = logging.getLogger('Logs')
     logger_instance.addHandler(handler)
     logger_instance.setLevel(logging.DEBUG)
     return logger_instance

@@ -1,6 +1,6 @@
-from common.base_page import BasePage
-from common.element import FindElement
-from page.locators.login_locator import LoginLocation as login
+from Common.base_page import BasePage
+from Common.element import FindElement
+from PageLocators.login_locator import LoginLocation as login
 
 
 class LoginPage(BasePage):

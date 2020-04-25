@@ -1,6 +1,6 @@
-from common.base_page import BasePage
-from common.element import FindElement
-from page.locators.comm_locator import CommLocation as comm
+from Common.base_page import BasePage
+from Common.element import FindElement
+from PageLocators.comm_locator import CommLocation as comm
 
 
 class CommonPage(BasePage):

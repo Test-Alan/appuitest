@@ -5,8 +5,8 @@ from poium import PageElement, PageElements
 from allure_commons.types import AttachmentType
 
 from settings import REPORT_DIR
-from utils.handle_report import new_report_time
-from utils.logger import logger
+from Utils.handle_report import new_report_time
+from Utils.logger import logger
 
 
 def capture_screenshots(driver, file_name):

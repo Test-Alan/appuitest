@@ -5,7 +5,7 @@ import pytest
 import click
 from settings import REPORT_DIR
 from settings import cases_path, rerun
-from utils.logger import logger
+from Utils.logger import logger
 from multiprocessing import Pool
 
 '''
