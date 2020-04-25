@@ -1,7 +1,6 @@
 platformName: android
-deviceName: mumu
-appPackage: com.changqingmall.smartshop
-appActivity: com.changqingmall.smartshop.activity.SplashActivity
+appPackage: org.xinkb.blackboard.android
+appActivity: .ui.activity.MainActivity
 autoGrantPermissions: True
 noReset: True
 automationName: uiautomator2

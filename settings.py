@@ -3,8 +3,10 @@ import sys
 # 项目目录配置
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, os.path.join(BASE_DIR, "page"))
+
+LOG_DIR = os.path.join(BASE_DIR, "logs")
 # 报告目录
-REPORT_DIR = os.path.join(BASE_DIR, "report")
+REPORT_DIR = os.path.join(BASE_DIR, "reports")
 
 # appcaps配置目录
 CAPS_DIR = os.path.join(BASE_DIR, "capabilities/caps.yaml")
