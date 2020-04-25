@@ -56,7 +56,7 @@ def run(m, p):
         for i in range(0, p):
             port = 4723 + 2 * i
             device_infos[i]["server_port"] = port
-            device_infos[i]["system_port"] = port + 1
+            device_infos[i]["bp_port"] = port + 1
 
         with Pool(p) as pool:
             pool.map(run_pro, device_infos)
