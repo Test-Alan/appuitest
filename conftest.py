@@ -14,6 +14,13 @@ from utils.handle_report import new_report_time
 driver = None
 
 
+def _capture_screenshot():
+    '''
+    截图保存为png，展示到测试报告中
+    :return:
+    '''
+    return driver.get_screenshot_as_png()
+
 
 def pytest_addoption(parser):
     parser.addoption("--cmdopt", action="store", default="device_info", help=None)
@@ -24,37 +31,30 @@ def cmdopt(request):
     return request.config.getoption("--cmdopt")
 
 
-# @pytest.mark.hookwrapper
-# def pytest_runtest_makereport(item):
-#     """
-#     用于向测试用例失败截图.
-#     :param item:
-#     """
-#     global driver
-#     pytest_html = item.config.pluginmanager.getplugin('html')
-#     print(pytest_html)
-#     outcome = yield
-#     report = outcome.get_result()
-#     extra = getattr(report, 'extra', [])
-#     if report.when == 'call' or report.when == "setup":
-#         xfail = hasattr(report, 'wasxfail')
-#         if (report.skipped and xfail) or (report.failed and not xfail):
-#             case_path = report.nodeid.replace("::", "_") + ".png"
-#             if "[" in case_path:
-#                 case_name = case_path.split("-")[0] + "].png"
-#             else:
-#                 case_name = case_path
-#             screen_img = _capture_screenshot()
-#             allure.attach(screen_img, name=case_name, attachment_type=AttachmentType.PNG)
-#         report.extra = extra
-#
-#
-# def _capture_screenshot():
-#     '''
-#     截图保存为base64，展示到html中
-#     :return:
-#     '''
-#     return driver.get_screenshot_as_png()
+@pytest.mark.hookwrapper
+def pytest_runtest_makereport(item):
+    """
+    用于向测试用例失败截图.
+    :param item:
+    """
+    global driver
+    pytest_html = item.config.pluginmanager.getplugin('html')
+    print(11111111111,pytest_html)
+    outcome = yield
+    report = outcome.get_result()
+    extra = getattr(report, 'extra', [])
+    if report.when == 'call' or report.when == "setup":
+        xfail = hasattr(report, 'wasxfail')
+        if (report.skipped and xfail) or (report.failed and not xfail):
+            case_path = report.nodeid.replace("::", "_") + ".png"
+            print(case_path)
+            if "[" in case_path:
+                case_name = case_path.split("-")[0] + "].png"
+            else:
+                case_name = case_path
+            screen_img = _capture_screenshot()
+            allure.attach(screen_img, name=case_name, attachment_type=AttachmentType.PNG)
+        report.extra = extra
 
 # 启动app
 @pytest.fixture
