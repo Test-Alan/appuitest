@@ -17,7 +17,7 @@ from multiprocessing import Pool
 '''
 
 device_infos = [
-            {"platform_version": "5.1.1","device_name": "mumu"}
+            {"platform_version": "5.1.1", "device_name": "mumu"}
         ]
 
 def init_env(now_time):
@@ -52,6 +52,7 @@ def run_pro(device_info):
 @click.option('-m', default=None, help='输入运行模式：run 或 debug.')
 @click.option('-p', default=1, help='输入执行进程个数：Number ')
 def run(m, p):
+    os.popen("adb kill-server && adb server")
     if m is None or m == "run":
         for i in range(0, p):
             server_port = 4723 + 2 * i

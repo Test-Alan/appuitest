@@ -1,0 +1,9 @@
+INFO     Logs:conftest.py:55 {'platform_version': '5.1.1', 'device_name': 'mumu', 'server_port': 4723, 'system_port': 8200}
+INFO     Logs:handle_port.py:26 port 4723 already be in use
+INFO     Logs:handle_port.py:39 appium pid: 48477
+
+INFO     Logs:handle_port.py:52 kill appium pid: kill -9 48477
+
+INFO     Logs:driver.py:29 start appium server: appium -p 4723 -bp 4724
+INFO     Logs:driver.py:38 http://127.0.0.1:4723/wd/hub
+INFO     Logs:element.py:64 , 1 times search, ('xpath', '//androidx.appcompat.app.ActionBar.c[@content-desc="通知"]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.TextView')

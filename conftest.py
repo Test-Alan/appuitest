@@ -1,15 +1,14 @@
 import time
-
 import allure
 import pytest
 from Common.driver import BaseDriver
-
+from Utils.logger import logger
 from allure_commons.types import AttachmentType
 
 driver = None
 
 
-def _capture_screenshot():
+def _capture_screenshot(driver):
     '''
     截图保存为png，展示到测试报告中
     :return:
@@ -45,7 +44,7 @@ def pytest_runtest_makereport(item):
                 case_name = case_path.split("-")[0] + "].png"
             else:
                 case_name = case_path
-            screen_img = _capture_screenshot()
+            screen_img = _capture_screenshot(driver)
             allure.attach(screen_img, name=case_name, attachment_type=AttachmentType.PNG)
         report.extra = extra
 
@@ -53,9 +52,9 @@ def pytest_runtest_makereport(item):
 @pytest.fixture
 def common_driver(cmdopt):
     global driver
-    print(cmdopt)
+    logger.info(cmdopt)
     base_driver = BaseDriver(eval(cmdopt))
-    # base_driver.start_appium()
+    base_driver.start_appium()
     time.sleep(3)
     driver = base_driver.get_driver()
     yield driver

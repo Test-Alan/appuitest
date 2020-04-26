@@ -1,0 +1,12 @@
+2020-04-26 13:32:44,137 run_tests.py[line:33] INFO 回归模式，开始执行✈✈！
+2020-04-26 13:32:44,521 conftest.py[line:55] INFO {'platform_version': '5.1.1', 'device_name': 'mumu', 'server_port': 4723, 'system_port': 8200}
+2020-04-26 13:32:44,522 handle_port.py[line:26] INFO port 4723 already be in use
+2020-04-26 13:32:44,574 handle_port.py[line:39] INFO appium pid: 48477
+
+2020-04-26 13:32:44,575 handle_port.py[line:52] INFO kill appium pid: kill -9 48477
+
+2020-04-26 13:32:46,577 driver.py[line:29] INFO start appium server: appium -p 4723 -bp 4724
+2020-04-26 13:32:49,584 driver.py[line:38] INFO http://127.0.0.1:4723/wd/hub
+2020-04-26 13:32:55,323 element.py[line:64] INFO , 1 times search, ('xpath', '//androidx.appcompat.app.ActionBar.c[@content-desc="通知"]/android.widget.RelativeLayout/android.widget.RelativeLayout/android.widget.TextView') 
+2020-04-26 13:33:04,319 run_tests.py[line:45] INFO allure generate /Users/alan/PycharmProjects/appuitest/Reports/2020_04_26_13_32_44-4723/xml -o /Users/alan/PycharmProjects/appuitest/Reports/2020_04_26_13_32_44-4723/html
+2020-04-26 13:33:04,322 run_tests.py[line:47] INFO 运行结束，生成测试报告♥❤！

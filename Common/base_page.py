@@ -1,9 +1,6 @@
 from time import sleep
-import allure
-from poium import Page, PageElement, PageElements
-from allure_commons.types import AttachmentType
+from poium import Page
 from selenium.webdriver.support.wait import WebDriverWait
-
 from Utils.logger import logger
 
 

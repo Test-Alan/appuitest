@@ -34,7 +34,7 @@ class FindElement(PageElement):
             elem = context.find_element(*self.locator)
         except:
             if self.count > 2:
-                logger.info("已经超过最大查找次数!")
+                # logger.info("已经超过最大查找次数!")
                 return None
             self.count += 1
             # 判断黑名单元素是否出现

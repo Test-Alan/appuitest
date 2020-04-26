@@ -27,7 +27,7 @@ class BaseDriver:
         cmd = "appium -p {0} -bp {1}".format(self.device_info["server_port"],
                                              self.device_info["server_port"] + 1)
         logger.info(f"start appium server: {cmd}")
-        out_path = os.path.join(LOG_DIR, 'appiumlog', str(self.device_info["server_port"]) + ".log")
+        out_path = os.path.join(LOG_DIR, 'appium', str(self.device_info["server_port"]) + ".log")
         subprocess.Popen(cmd, shell=True, stdout=open(out_path, 'a'), stderr=subprocess.STDOUT)
 
     def get_driver(self):
